@@ -4,7 +4,9 @@
       <catalog />
     </div>
     <div class="box">
-      <router-view />
+      <transition name="fade">
+        <router-view />
+      </transition>
     </div>
   </div>
 </template>
@@ -51,8 +53,30 @@ export default {
   }
   .box {
     flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    >div {
+      position: absolute;
+    }
   }
   .text-center {
     text-align: center;
+  }
+  .fade-enter-active {
+    transition: all 0.5s;
+  }
+  .fade-enter {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s;
+  }
+  .fade-leave {
+    transition: all 0.5s;
+  }
+  .fade-leave-active {
+    transition: all 0.5s;
+    transform: translateX(-100%);
+    opacity: 0;
   }
 </style>
