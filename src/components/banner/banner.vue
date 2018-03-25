@@ -28,10 +28,9 @@
         <li
           v-for="(list, index) in dataList"
           :key="index" :style="{width: imgWidth + 'px'}"
+          @click="goToPath(list.path)"
           >
-          <router-link to="">
-            <div :style="{backgroundImage: `url(${list.img})`, backgroundSize: `cover`, height: imgHeight}"></div>
-          </router-link>
+          <div :style="{backgroundImage: `url(${list.img})`, backgroundSize: `cover`, height: imgHeight}"></div>
         </li>
       </ul>
     </div>
@@ -118,17 +117,26 @@ export default {
       this.imgBoxHaveTransition = 'imgBoxHaveTransition'
     },
     theTimeOut () {
+      if (parseInt(this.timeOut) === 0 || !this.timeOut) return
       this.timer = setInterval(() => {
         this.clickChangeIndex(false)
       }, this.timeOut)
     },
     clearTimeOut () {
       clearInterval(this.timer)
+    },
+    goToPath (path) {
+      console.log(path)
+      if (path.indexOf('http') !== -1) {
+        window.location.href = path
+      } else {
+        this.$router.push(path)
+      }
     }
   },
   mounted () {
     this.getImgHeight()
-    this.timeOut !== '0' && this.theTimeOut()
+    this.theTimeOut()
     window.onresize = () => {
       this.getImgHeight()
     }
