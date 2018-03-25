@@ -28,7 +28,7 @@
         <li
           v-for="(list, index) in dataList"
           :key="index" :style="{width: imgWidth + 'px'}"
-          @click="goToPath(list.path)"
+          @mouseup="goToPath(list.path)"
           >
           <div :style="{backgroundImage: `url(${list.img})`, backgroundSize: `cover`, height: imgHeight}"></div>
         </li>
@@ -43,6 +43,7 @@ export default {
   data () {
     return {
       timer: null,
+      sureGoTo: true,
       imgHeight: '',
       imgWidth: '',
       imgBoxHaveTransition: 'imgBoxHaveTransition',
@@ -96,6 +97,7 @@ export default {
       this.mouseMoveStatus.move = event.clientX
       this.mouseMoveStatus.num = this.mouseMoveStatus.start - this.mouseMoveStatus.move
       this.moveLeft = this.mouseMoveStatus.nowLeft - this.mouseMoveStatus.num + 'px'
+      this.sureGoTo = false
     },
     theMouseUp (e) {
       const event = e || window.event
@@ -115,6 +117,7 @@ export default {
       this.moveLeft = arr[numArr[0].index] + 'px'
       this.flag = false
       this.imgBoxHaveTransition = 'imgBoxHaveTransition'
+      this.sureGoTo = true
     },
     theTimeOut () {
       if (parseInt(this.timeOut) === 0 || !this.timeOut) return
@@ -126,7 +129,7 @@ export default {
       clearInterval(this.timer)
     },
     goToPath (path) {
-      console.log(path)
+      if (!this.sureGoTo) return
       if (path.indexOf('http') !== -1) {
         window.location.href = path
       } else {
