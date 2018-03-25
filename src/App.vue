@@ -4,7 +4,7 @@
       <catalog />
     </div>
     <div class="box">
-      <transition name="fade">
+      <transition name="fade" mode="out-in">
         <router-view />
       </transition>
     </div>
@@ -25,13 +25,6 @@ export default {
     margin: 0;
     padding: 0;
   }
-  li {
-    list-style: none;
-  }
-  a {
-    text-decoration: none;
-    color: black;
-  }
   html {
     font-family: 'Helvetica Neue For Number','-apple-system','BlinkMacSystemFont','Segoe UI','Roboto','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue','Helvetica','Arial','sans-serif';
     // font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -42,7 +35,8 @@ export default {
     display: flex;
   }
   .left {
-    width: 299px;
+    max-width: 299px;
+    flex-basis: 299px;
     min-height: 100vh;
     background: {
       color: #fafafa;
@@ -55,10 +49,6 @@ export default {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
-    position: relative;
-    >div {
-      position: absolute;
-    }
   }
   .text-center {
     text-align: center;
