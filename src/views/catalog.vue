@@ -30,6 +30,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
   #catalog {
     >div {
       box-sizing: border-box;

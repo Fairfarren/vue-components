@@ -1,6 +1,8 @@
 <template>
   <div>
-    <fairfarrenBanner :dataList="dataList" timeOut="000"/>
+    <fairfarrenBanner :dataList="dataList" timeOut="3000"/>
+    <br>
+    <bannerReadMe />
   </div>
 </template>
 
@@ -26,8 +28,12 @@ export default {
       }, {
         img: 'https://i.loli.net/2018/03/25/5ab75a13f22d6.jpg',
         path: 'asdfasdf'
-      }]
+      }],
+      show: false
     }
+  },
+  components: {
+    bannerReadMe: () => import('@/views/box/banner/bannerReadMe.vue')
   }
 }
 </script>

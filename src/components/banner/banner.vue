@@ -150,6 +150,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
   #banner {
     width: 100%;
     position: relative;

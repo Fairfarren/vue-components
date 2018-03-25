@@ -7,11 +7,11 @@ export default new Router({
   routes: [
     {
       path: '/banner',
-      component: () => import('@/views/box/bannerView')
+      component: () => import('@/views/box/banner/bannerView')
     },
     {
       path: '/card',
-      component: () => import('@/views/box/cardView')
+      component: () => import('@/views/box/card/cardView')
     }
   ]
 })
