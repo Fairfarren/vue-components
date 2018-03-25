@@ -7,7 +7,7 @@
     </div>
     <ul>
       <li v-for="(data, index) in list" :key="index">
-        <router-link :to="data.path">{{ data.text }}</router-link>
+        <router-link :to="data.path" active-class="chioseA">{{ data.text }}</router-link>
       </li>
     </ul>
   </div>
@@ -42,15 +42,20 @@ export default {
       }
     }
     >ul {
+      padding: 20px;
       >li {
         padding: 10px 20px;
         a {
           display: block;
           color: black;
-          padding: 10px 20px;
+          // padding: 10px 20px;
           &:hover {
             text-decoration: underline;
           }
+        }
+        .chioseA {
+          color: #42b983;
+          text-decoration: underline;
         }
       }
     }
