@@ -1,5 +1,5 @@
 <template>
-  <div class='markdown-preview' data-use-github-style>
+<div class='markdown-preview' data-use-github-style>
 <h1 id="banner">Banner</h1>
 <h2 id="-">目前已有的功能</h2>
 <ol>
