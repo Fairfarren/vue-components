@@ -24,6 +24,9 @@
         @mouseup="theMouseUp"
         @mouseover="clearTimeOut"
         @mouseout="mouseOutCastMouseUp"
+        @touchstart="theTouchStart"
+        @touchmove="theTouchMove"
+        @touchend="theTouchEnd"
         >
         <li
           v-for="(list, index) in dataList"
@@ -50,6 +53,14 @@ export default {
       nowIndex: 0,
       moveLeft: '0px',
       mouseMoveStatus: {
+        flag: false,
+        nowLeft: '',
+        start: '',
+        move: '',
+        up: '',
+        num: ''
+      },
+      touchMoveStatus: {
         flag: false,
         nowLeft: '',
         start: '',
@@ -86,7 +97,7 @@ export default {
     },
     theMouseDown (e) {
       const event = e || window.event
-      this.mouseMoveStatus.start = event.clientX
+      this.mouseMoveStatus.start = event.clientX || event.changedTouches[0].clientX
       this.flag = true
       this.mouseMoveStatus.nowLeft = parseInt(this.moveLeft)
     },
@@ -94,14 +105,14 @@ export default {
       if (!this.flag) return
       const event = e || window.event
       this.imgBoxHaveTransition = ''
-      this.mouseMoveStatus.move = event.clientX
+      this.mouseMoveStatus.move = event.clientX || event.changedTouches[0].clientX
       this.mouseMoveStatus.num = this.mouseMoveStatus.start - this.mouseMoveStatus.move
       this.moveLeft = this.mouseMoveStatus.nowLeft - this.mouseMoveStatus.num + 'px'
       this.sureGoTo = false
     },
     theMouseUp (e) {
       const event = e || window.event
-      this.mouseMoveStatus.up = event.clientX
+      this.mouseMoveStatus.up = event.clientX || event.changedTouches[0].clientX
       let arr = []
       let numArr = []
       let helpMoveNum = this.mouseMoveStatus.num < 0 ? -this.imgWidth * 0.3 : this.imgWidth * 0.3
@@ -127,6 +138,15 @@ export default {
     },
     mouseOutCastMouseUp (e) {
       this.theTimeOut()
+      this.theMouseUp(e)
+    },
+    theTouchStart (e) {
+      this.theMouseDown(e)
+    },
+    theTouchMove (e) {
+      this.theMouseMove(e)
+    },
+    theTouchEnd (e) {
       this.theMouseUp(e)
     },
     clearTimeOut () {

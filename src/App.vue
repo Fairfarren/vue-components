@@ -35,8 +35,8 @@ export default {
     display: flex;
   }
   .left {
-    max-width: 299px;
-    flex-basis: 299px;
+    max-width: 199px;
+    flex-basis: 199px;
     min-height: 100vh;
     background: {
       color: #fafafa;
