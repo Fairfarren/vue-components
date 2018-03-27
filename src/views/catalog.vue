@@ -4,12 +4,19 @@
       <h3>
         <a href="https://fairfarren.github.io" target="_blank">曼妥思的组件</a>
       </h3>
+      <div @click="changeFlag">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <ul>
-      <li v-for="(data, index) in list" :key="index">
-        <router-link :to="data.path" active-class="chioseA">{{ data.text }}</router-link>
-      </li>
-    </ul>
+    <transition name="fade">
+      <ul v-if="ulShow">
+        <li v-for="(data, index) in list" :key="index">
+          <router-link :to="data.path" active-class="chioseA">{{ data.text }}</router-link>
+        </li>
+      </ul>
+    </transition>
   </div>
 </template>
 
@@ -23,8 +30,27 @@ export default {
       }, {
         text: 'card',
         path: '/card'
-      }]
+      }],
+      flag: false,
+      ulShow: false
     }
+  },
+  methods: {
+    changeFlag () {
+      if (!this.flag) return
+      this.ulShow = !this.ulShow
+    }
+  },
+  mounted () {
+    window.addEventListener('resize', () => {
+      if (window.innerWidth < 823) {
+        this.flag = true
+        this.ulShow = false
+      } else {
+        this.flag = false
+        this.ulShow = true
+      }
+    })
   }
 }
 </script>
@@ -47,6 +73,9 @@ export default {
       background: {
         color: #fff;
       }
+      >div {
+        display: none;
+      }
     }
     >ul {
       padding: 20px;
@@ -63,6 +92,69 @@ export default {
         .chioseA {
           color: #42b983;
           text-decoration: underline;
+        }
+      }
+    }
+  }
+  .text-center {
+    text-align: center;
+  }
+  .fade-enter-active {
+    transition: all 0.5s;
+  }
+  .fade-enter {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s;
+  }
+  .fade-leave {
+    transition: all 0.5s;
+  }
+  .fade-leave-active {
+    transition: all 0.5s;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  @media screen and (max-width: 823px) {
+    #catalog {
+      position: relative;
+      >.text-center {
+        >h3 {
+          text-align: center;
+        }
+        >div {
+          display: block;
+          position:absolute;
+          right: 20px;
+          top: 24px;
+          cursor: pointer;
+          >span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: {
+              color: #666666;
+            }
+          }
+          >span:nth-child(2) {
+            margin: 5px 0;
+          }
+        }
+      }
+      >ul {
+        position: absolute;
+        top: 67px;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        background: {
+          color: #fff;
+        }
+        border: {
+          bottom: 1px solid rgba(0, 0, 0, 0.07);
+        }
+        >li {
+          text-align: center;
         }
       }
     }

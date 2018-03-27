@@ -49,6 +49,9 @@ export default {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
+    padding: {
+      top: 87px;
+    }
   }
   .text-center {
     text-align: center;
@@ -68,5 +71,20 @@ export default {
     transition: all 0.5s;
     transform: translateX(-100%);
     opacity: 0;
+  }
+  @media screen and (max-width: 823px) {
+    #app {
+      display: block;
+      position: relative;
+    }
+    .left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 99;
+      min-height: 30px;
+      max-width: 100%;
+      width: 100%;
+    }
   }
 </style>
