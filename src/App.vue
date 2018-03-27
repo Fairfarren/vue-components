@@ -49,9 +49,6 @@ export default {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
-    padding: {
-      top: 87px;
-    }
   }
   .text-center {
     text-align: center;
@@ -85,6 +82,11 @@ export default {
       min-height: 30px;
       max-width: 100%;
       width: 100%;
+    }
+    .box {
+       padding: {
+        top: 87px;
+      }
     }
   }
 </style>
