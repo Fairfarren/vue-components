@@ -12,7 +12,7 @@
     </div>
     <transition name="fade">
       <ul v-if="ulShow">
-        <li v-for="(data, index) in list" :key="index">
+        <li v-for="(data, index) in list" :key="index" @click="ulShow = !ulShow">
           <router-link :to="data.path" active-class="chioseA">{{ data.text }}</router-link>
         </li>
       </ul>
@@ -104,7 +104,7 @@ export default {
   }
   .fade-enter {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateY(100%);
     transition: all 0.5s;
   }
   .fade-leave {
@@ -112,7 +112,7 @@ export default {
   }
   .fade-leave-active {
     transition: all 0.5s;
-    transform: translateX(-100%);
+    transform: translateY(-100%);
     opacity: 0;
   }
   @media screen and (max-width: 823px) {
