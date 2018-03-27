@@ -23,7 +23,7 @@
         @mousemove="theMouseMove"
         @mouseup="theMouseUp"
         @mouseover="clearTimeOut"
-        @mouseout="theTimeOut"
+        @mouseout="mouseOutCastMouseUp"
         >
         <li
           v-for="(list, index) in dataList"
@@ -124,6 +124,10 @@ export default {
       this.timer = setInterval(() => {
         this.clickChangeIndex(false)
       }, this.timeOut)
+    },
+    mouseOutCastMouseUp (e) {
+      this.theTimeOut()
+      this.theMouseUp(e)
     },
     clearTimeOut () {
       clearInterval(this.timer)
