@@ -12,7 +12,7 @@
     </div>
     <transition name="fade">
       <ul v-if="ulShow">
-        <li v-for="(data, index) in list" :key="index" @click="ulShow = !ulShow">
+        <li v-for="(data, index) in list" :key="index" @click="changeFlag">
           <router-link :to="data.path" active-class="chioseA">{{ data.text }}</router-link>
         </li>
       </ul>
@@ -39,10 +39,8 @@ export default {
     changeFlag () {
       if (!this.flag) return
       this.ulShow = !this.ulShow
-    }
-  },
-  mounted () {
-    window.addEventListener('resize', () => {
+    },
+    windowWidth () {
       if (window.innerWidth < 823) {
         this.flag = true
         this.ulShow = false
@@ -50,6 +48,12 @@ export default {
         this.flag = false
         this.ulShow = true
       }
+    }
+  },
+  mounted () {
+    this.windowWidth()
+    window.addEventListener('resize', () => {
+      this.windowWidth()
     })
   }
 }
