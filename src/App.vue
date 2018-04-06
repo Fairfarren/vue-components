@@ -35,8 +35,7 @@ export default {
     display: flex;
   }
   .left {
-    max-width: 199px;
-    flex-basis: 199px;
+    flex: 0 0 299px;
     min-height: 100vh;
     background: {
       color: #fafafa;
@@ -46,7 +45,7 @@ export default {
     }
   }
   .box {
-    flex: 1;
+    flex: 1 1 100%;
     padding: 20px;
     box-sizing: border-box;
   }
