@@ -69,6 +69,7 @@ export default {
   a {
     text-decoration: none;
     color: black;
+    transition: all 0.3s;
   }
   #catalog {
     >div {
@@ -82,6 +83,29 @@ export default {
       }
       >div {
         display: none;
+      }
+      >h3 {
+        color: black;
+        a {
+          transition: all 1s;
+          color: black;
+        }
+        &:hover {
+          position:relative;
+          // background-image: -webkit-linear-gradient(left, blue, red 25%, blue 50%, red 75%, blue 100%);
+          // background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 50%, #4facfe 100%);
+          // background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+          // background-image: linear-gradient(to right, #a8edea 0%, #fed6e3 100%);
+          color: #2af598;
+          background-image: linear-gradient(left, #2af598 0%, #009efd 25%, #2af598 50%, #009efd 75%, #2af598 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: streamer 0.5s infinite linear;
+          background-size: 200% 100%;
+        }
+        &:hover a {
+          color: #17C8CD;
+        }
       }
     }
     >ul {
@@ -164,6 +188,14 @@ export default {
           text-align: center;
         }
       }
+    }
+  }
+  @keyframes streamer {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -100% 0;
     }
   }
 </style>
