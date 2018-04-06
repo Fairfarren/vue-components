@@ -16,6 +16,10 @@ export default new Router({
     {
       path: '/tree',
       component: () => import('@/views/box/tree/treeView')
+    },
+    {
+      path: '/multipleSelect',
+      component: () => import('@/views/box/multipleSelect/multipleSelectView')
     }
   ]
 })
