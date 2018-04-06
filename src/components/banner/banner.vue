@@ -188,6 +188,7 @@ export default {
     width: 100%;
     position: relative;
     overflow: hidden;
+    cursor: move;
     >div {
       position: absolute;
       z-index: 2;

@@ -30,6 +30,9 @@ export default {
       }, {
         text: 'card',
         path: '/card'
+      }, {
+        text: 'tree',
+        path: '/tree'
       }],
       flag: false,
       ulShow: false
