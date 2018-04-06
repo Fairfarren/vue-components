@@ -12,6 +12,10 @@ export default new Router({
     {
       path: '/card',
       component: () => import('@/views/box/card/cardView')
+    },
+    {
+      path: '/tree',
+      component: () => import('@/views/box/tree/treeView')
     }
   ]
 })
