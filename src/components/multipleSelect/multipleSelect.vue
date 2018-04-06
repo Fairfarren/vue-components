@@ -1,0 +1,109 @@
+<template>
+  <div class="multiselectBox">
+    <ul class="theInput" @click.stop="chioseInput">
+      <li v-for="(data, index) in list" :key="index">
+        <span>{{data}}</span>
+        <span @click.stop="deleteThis(index)">x</span>
+      </li>
+      <li class="inputTExt" v-show="inputShow">
+        <input type="text" :id="theKey" @blur="inputBlue" v-model="text">
+      </li>
+    </ul>
+    <!-- <ul class="theList">
+      <li>选1</li>
+      <li>选2</li>
+      <li>选3</li>
+    </ul> -->
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['theKey', 'list'],
+  data () {
+    return {
+      inputShow: false,
+      text: ''
+    }
+  },
+  methods: {
+    deleteThis (index) {
+      this.list.splice(index, 1)
+    },
+    chioseInput () {
+      this.inputShow = true
+      const theInput = document.getElementById(this.theKey)
+      setTimeout(() => {
+        theInput.focus()
+      }, 100)
+    },
+    inputBlue () {
+      if (this.text.trim()) {
+        this.list.push(this.text)
+      }
+      this.text = ''
+      this.inputShow = false
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s;
+  }
+  .multiselectBox {
+    border: 1px solid black;
+    width: 300px;
+    cursor: text;
+    position: relative;
+    border: 1px solid #ececec;
+    border-radius: 2px;
+  }
+  .theInput {
+    padding: 5px;
+    padding: {
+      bottom: 0;
+    }
+    display: flex;
+    flex-wrap: wrap;
+    >li {
+      padding: 5px 10px;
+      color: #333;
+      font-size: 12px;
+      margin: {
+        right: 10px;
+        bottom: 5px;
+      }
+      background: {
+        color: #f3f3f3;
+      }
+      >span:first-child {
+        cursor: pointer;
+        margin: {
+          right: 5px;
+        }
+      }
+      >span:last-child {
+        cursor: pointer;
+        font-weight: bold;
+      }
+    }
+    >.inputTExt {
+      padding: 0;
+      background: {
+        color: transparent;
+      }
+      >input {
+        outline: 1px solid #27b3fe;
+        border: 0;
+        padding: 5px;
+      }
+    }
+  }
+</style>

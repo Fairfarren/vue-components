@@ -31,8 +31,8 @@ export default {
         text: 'card',
         path: '/card'
       }, {
-        text: 'tree',
-        path: '/tree'
+        text: 'multipleSelect',
+        path: '/multipleSelect'
       }],
       flag: false,
       ulShow: false
