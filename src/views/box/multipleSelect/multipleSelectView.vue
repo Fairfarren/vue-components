@@ -1,6 +1,8 @@
 <template>
   <div>
-    <fairfarrenMultipleSelect theKey="input01" :list="list" :reg="mail"/>
+    <fairfarrenMultipleSelect theKey="input01" :ajaxList="list" :reg="mail"/>
+    <br>
+    <multipleSelectReadme />
   </div>
 </template>
 
@@ -18,6 +20,9 @@ export default {
         text: '邮箱不正确'
       }
     }
+  },
+  components: {
+    multipleSelectReadme: () => import('@/views/box/multipleSelect/multipleSelectReadme.vue')
   }
 }
 </script>

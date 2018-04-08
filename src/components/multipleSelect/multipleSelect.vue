@@ -18,18 +18,17 @@
       </li>
     </ul>
     <!-- <ul class="theList">
-      <li>选1</li>
-      <li>选2</li>
-      <li>选3</li>
+      <li v-for="(data, index) in ajaxList" :key="index">{{data}}</li>
     </ul> -->
   </div>
 </template>
 
 <script>
 export default {
-  props: ['theKey', 'list', 'reg'],
+  props: ['theKey', 'reg', 'ajaxList'],
   data () {
     return {
+      list: [],
       inputShow: false,
       addFlg: false,
       text: '',
@@ -157,6 +156,15 @@ export default {
       >span {
         color: #FF6159;
       }
+    }
+  }
+  .theList {
+    width: 100%;
+    position: absolute;
+    left: -1px;
+    border: 1px solid #ececec;
+    margin: {
+      top: 10px;
     }
   }
 </style>
