@@ -7,12 +7,14 @@
       </li>
       <li class="inputTExt" v-show="inputShow">
         <input
+          :class="redBorder"
           type="text"
           :id="theKey"
           v-model="text"
           @blur="inputBlue"
           @keyup.enter="enterKeyUp"
         >
+        <span v-show="!addFlg">{{errText}}</span>
       </li>
     </ul>
     <!-- <ul class="theList">
@@ -30,7 +32,17 @@ export default {
     return {
       inputShow: false,
       addFlg: false,
-      text: ''
+      text: '',
+      redBorder: ''
+    }
+  },
+  computed: {
+    errText () {
+      if (this.text.trim() && this.reg) {
+        return this.reg.text
+      } else {
+        return ''
+      }
     }
   },
   methods: {
@@ -48,8 +60,8 @@ export default {
       if (this.text.trim() && this.addFlg) {
         this.list.push(this.text)
         this.text = ''
-        this.inputShow = false
       }
+      this.inputShow = false
     },
     enterKeyUp () {
       this.inputBlue()
@@ -64,10 +76,15 @@ export default {
   watch: {
     'text' (value) {
       if (!this.reg) return
-      if (this.reg.reg.test(value)) {
+      if (!value) {
+        this.addFlg = false
+        this.redBorder = ''
+      } else if (this.reg.reg.test(value)) {
         this.addFlg = true
+        this.redBorder = ''
       } else {
         this.addFlg = false
+        this.redBorder = 'redBorder'
       }
     }
   }
@@ -131,6 +148,14 @@ export default {
         outline: 1px solid #27b3fe;
         border: 0;
         padding: 5px;
+        transition: all 0.3s;
+      }
+      >.redBorder {
+        outline: 1px solid #FF6159;
+        color: #FF6159;
+      }
+      >span {
+        color: #FF6159;
       }
     }
   }
