@@ -97,7 +97,7 @@ export default {
           // background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
           // background-image: linear-gradient(to right, #a8edea 0%, #fed6e3 100%);
           color: #2af598;
-          background-image: linear-gradient(left, #2af598 0%, #009efd 25%, #2af598 50%, #009efd 75%, #2af598 100%);
+          background-image: -webkit-gradient(linear, left top, right top, from(#2af598), color-stop(25%, #009efd), color-stop(50%, #2af598), color-stop(75%, #009efd), to(#2af598));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           animation: streamer 0.5s infinite linear;
