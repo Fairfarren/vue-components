@@ -25,10 +25,11 @@
 
 <script>
 export default {
-  props: ['theKey', 'list'],
+  props: ['theKey', 'list', 'reg'],
   data () {
     return {
       inputShow: false,
+      addFlg: false,
       text: ''
     }
   },
@@ -44,17 +45,30 @@ export default {
       }, 100)
     },
     inputBlue () {
-      if (this.text.trim()) {
+      if (this.text.trim() && this.addFlg) {
         this.list.push(this.text)
+        this.text = ''
+        this.inputShow = false
       }
-      this.text = ''
-      this.inputShow = false
     },
     enterKeyUp () {
       this.inputBlue()
       setTimeout(() => {
         this.chioseInput()
       }, 10)
+    }
+  },
+  mounted () {
+    this.addFlg = !this.reg && true
+  },
+  watch: {
+    'text' (value) {
+      if (!this.reg) return
+      if (this.reg.reg.test(value)) {
+        this.addFlg = true
+      } else {
+        this.addFlg = false
+      }
     }
   }
 }
