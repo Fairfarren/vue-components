@@ -1,6 +1,6 @@
 <template>
   <div>
-    <fairfarrenMultipleSelect theKey="input01" :list="list" :reg="mobile"/>
+    <fairfarrenMultipleSelect theKey="input01" :list="list" :reg="mail"/>
   </div>
 </template>
 
@@ -12,6 +12,10 @@ export default {
       mobile: {
         reg: /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/,
         text: '手机号不正确'
+      },
+      mail: {
+        reg: /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/,
+        text: '邮箱不正确'
       }
     }
   }
