@@ -3,10 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
 
 import fairfarren from '@/components/index'
 
 Vue.use(fairfarren)
+Vue.prototype.axios = axios
 
 Vue.config.productionTip = false
 
