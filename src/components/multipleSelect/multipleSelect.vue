@@ -6,7 +6,13 @@
         <span @click.stop="deleteThis(index)">x</span>
       </li>
       <li class="inputTExt" v-show="inputShow">
-        <input type="text" :id="theKey" @blur="inputBlue" v-model="text">
+        <input
+          type="text"
+          :id="theKey"
+          v-model="text"
+          @blur="inputBlue"
+          @keyup.enter="enterKeyUp"
+        >
       </li>
     </ul>
     <!-- <ul class="theList">
@@ -43,6 +49,12 @@ export default {
       }
       this.text = ''
       this.inputShow = false
+    },
+    enterKeyUp () {
+      this.inputBlue()
+      setTimeout(() => {
+        this.chioseInput()
+      }, 10)
     }
   }
 }
@@ -67,6 +79,8 @@ export default {
   }
   .theInput {
     padding: 5px;
+    min-height: 37px;
+    box-sizing: border-box;
     padding: {
       bottom: 0;
     }
