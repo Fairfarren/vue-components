@@ -63,10 +63,12 @@ export default {
       this.inputShow = false
     },
     enterKeyUp () {
-      this.inputBlue()
-      setTimeout(() => {
+      new Promise((resolve) => {
+        this.inputBlue()
+        resolve()
+      }).then(() => {
         this.chioseInput()
-      }, 10)
+      })
     }
   },
   mounted () {
