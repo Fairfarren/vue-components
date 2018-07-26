@@ -18,7 +18,7 @@
     <div class="imgBox">
       <ul class="theImg"
         :class="imgBoxHaveTransition"
-        :style="{left: moveLeft, width: imgWidth * dataList.length + 'px'}"
+        :style="{width: imgWidth * dataList.length + 'px', transform: `translateX(${moveLeft}) translateZ(0)`}"
         @mousedown="theMouseDown"
         @mousemove="theMouseMove"
         @mouseup="theMouseUp"
