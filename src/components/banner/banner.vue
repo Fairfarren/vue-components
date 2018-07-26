@@ -154,7 +154,7 @@ export default {
     },
     goToPath (path) {
       if (!this.sureGoTo) return
-      if (path.indexOf('http') !== -1) {
+      if (path.includes('http')) {
         window.location.href = path
       } else {
         this.$router.push(path)
