@@ -1,6 +1,6 @@
 <template>
   <div>
-    <fairfarrenMultipleSelect theKey="input01" :ajaxList="list" :reg="mail" boxWidth="500px"/>
+    <fairfarrenMultipleSelect theKey="input01" :ajaxList="list" :reg="mail" boxWidth="300px"/>
     <br>
     <multipleSelectReadme />
   </div>
