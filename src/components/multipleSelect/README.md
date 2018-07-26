@@ -53,3 +53,5 @@ export default {
 | :----: | :--------: | :----: | :-: | :-: |
 | theKey | input标签的ID | String |  -  |  -  |
 |   reg  |  正则验证和错误提示 | Object |  -  |  -  |
+
+
