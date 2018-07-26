@@ -36,7 +36,10 @@ export default {
     display: flex;
   }
   .left {
-    flex: 0 0 299px;
+    // flex: 0 0 299px;
+    width: 299px;
+    // grid-column: 1 / 2;
+    // flex-shrink: 0;
     min-height: 100vh;
     background: {
       color: #fafafa;
@@ -46,7 +49,9 @@ export default {
     }
   }
   .box {
-    flex: 1 1 100%;
+    // flex: 1 1 100%;
+    flex-shrink: 1;
+    // grid-column: 2 / auto;
     padding: 20px;
     box-sizing: border-box;
   }

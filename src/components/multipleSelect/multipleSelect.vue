@@ -1,5 +1,5 @@
 <template>
-  <div class="multiselectBox">
+  <div class="multiselectBox" :style="{width: boxWidth}">
     <ul class="theInput" @click.stop="chioseInput">
       <li v-for="(data, index) in list" :key="index">
         <span>{{data}}</span>
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  props: ['theKey', 'reg', 'ajaxList'],
+  props: ['theKey', 'reg', 'ajaxList', 'boxWidth'],
   data () {
     return {
       list: [],
@@ -103,7 +103,7 @@ export default {
   }
   .multiselectBox {
     border: 1px solid black;
-    width: 300px;
+    // width: 300px;
     cursor: text;
     position: relative;
     border: 1px solid #ececec;
