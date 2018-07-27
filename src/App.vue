@@ -39,7 +39,7 @@ export default {
     // flex: 0 0 299px;
     width: 299px;
     // grid-column: 1 / 2;
-    // flex-shrink: 0;
+    flex-shrink: 0;
     min-height: 100vh;
     background: {
       color: #fafafa;

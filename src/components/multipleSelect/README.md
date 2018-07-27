@@ -55,5 +55,3 @@ export default {
 |  theKey  | input标签的ID | String |   -   |   -   |
 |    reg   |  正则验证和错误提示 | Object |   -   |   -   |
 | boxWidth |  宽度控制，加上单位 | String |   -   |   -   |
-
-
