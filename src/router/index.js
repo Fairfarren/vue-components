@@ -20,6 +20,10 @@ export default new Router({
     {
       path: '/multipleSelect',
       component: () => import('@/views/box/multipleSelect/multipleSelectView')
+    },
+    {
+      path: '/animatedText',
+      component: () => import('@/views/box/animatedText/animatedTextView')
     }
   ]
 })
