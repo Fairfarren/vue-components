@@ -1,16 +1,17 @@
 <template>
 <div class='markdown-body entry-content'>
-    <h1>AnimatedText</h1>
+  <h1>AnimatedText</h1>
 <h2>目前已有的功能</h2>
 <ol>
-<li>添加字数的时间</li>
-<li>删除字数的时间</li>
+<li>添加每个字的时间</li>
+<li>删除每个字的时间</li>
 <li>多行字</li>
 <li>是否再次执行</li>
+<li>删除前等待时间</li>
 </ol>
 <h2>示例</h2>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">template</span>&gt;
-  &lt;<span class="pl-ent"><span class="pl-ii">fairfarrenAnimatedText</span></span> <span class="pl-e">:text</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">:addTime</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span> <span class="pl-e">:deleteTime</span>=<span class="pl-s"><span class="pl-pds">"</span>50<span class="pl-pds">"</span></span> <span class="pl-e">:again</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">textClass</span>=<span class="pl-s"><span class="pl-pds">"</span>animatedStyle<span class="pl-pds">"</span></span>/&gt;
+  &lt;<span class="pl-ent"><span class="pl-ii">fairfarrenAnimatedText</span></span> <span class="pl-e">:text</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">:addTime</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span> <span class="pl-e">:deleteTime</span>=<span class="pl-s"><span class="pl-pds">"</span>50<span class="pl-pds">"</span></span> <span class="pl-e">:again</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">textClass</span>=<span class="pl-s"><span class="pl-pds">"</span>animatedStyle<span class="pl-pds">"</span></span> <span class="pl-e">:wait</span>=<span class="pl-s"><span class="pl-pds">"</span>2000<span class="pl-pds">"</span></span>/&gt;
 &lt;/<span class="pl-ent">template</span>&gt;
 
 &lt;<span class="pl-ent">script</span>&gt;<span class="pl-s1"></span>
@@ -78,11 +79,18 @@
 <td align="center">String</td>
 <td align="center">-</td>
 <td align="center">-</td>
+</tr>
+<tr>
+<td align="center">wait</td>
+<td align="center">删除字数前等待时间</td>
+<td align="center">Number</td>
+<td align="center">-</td>
+<td align="center">1000</td>
 </tr></tbody></table>
 </div>
 </template>
 
 <script>
 export default {
-
 }
+</script>
