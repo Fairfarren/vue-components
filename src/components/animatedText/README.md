@@ -2,16 +2,17 @@
 
 ## 目前已有的功能
 
-1.  添加字数的时间
-2.  删除字数的时间
+1.  添加每个字的时间
+2.  删除每个字的时间
 3.  多行字
 4.  是否再次执行
+5.  删除前等待时间
 
 ## 示例
 
 ```html
 <template>
-  <fairfarrenAnimatedText :text="text" :addTime="100" :deleteTime="50" :again="true" textClass="animatedStyle"/>
+  <fairfarrenAnimatedText :text="text" :addTime="100" :deleteTime="50" :again="true" textClass="animatedStyle" :wait="2000"/>
 </template>
 
 <script>
@@ -45,3 +46,4 @@
 | deleteTime |  删除每个字的时间  |  Number |  -  |   50  |
 |    again   | 输入完后是否从头再来 | Boolean |  -  | false |
 |  textClass | 文字的class类名 |  String |  -  |   -   |
+|    wait    |  删除字数前等待时间 |  Number |  -  |  1000 |

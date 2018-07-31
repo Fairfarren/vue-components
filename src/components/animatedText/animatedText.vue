@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  props: ['text', 'addTime', 'deleteTime', 'again', 'textClass'],
+  props: ['text', 'addTime', 'deleteTime', 'again', 'textClass', 'wait'],
   data () {
     return {
       value: ' ',
@@ -21,6 +21,7 @@ export default {
     async getValue () {
       await this.deleteText()
       await this.addText()
+      await this.waitTime()
       if (this.num < this.text.length) {
         this.getValue()
       } else if (this.again) {
@@ -58,6 +59,11 @@ export default {
             resolve()
           }
         }, this.addTime || 100)
+      })
+    },
+    waitTime () {
+      return new Promise((resolve) => {
+        setTimeout(resolve, this.wait || 1000)
       })
     }
   },
