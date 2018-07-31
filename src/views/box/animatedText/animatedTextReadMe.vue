@@ -27,6 +27,7 @@
 <span class="pl-s1">  }</span>
 <span class="pl-s1">}</span>
 <span class="pl-s1"></span><span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;</pre></div>
+<h2>API</h2>
 <blockquote>
 <p><code>text</code>必须为Array</p>
 <p><code>addTime</code>和<code>deleteTime</code>需要为Nummber</p>
@@ -85,4 +86,3 @@
 export default {
 
 }
-</script>

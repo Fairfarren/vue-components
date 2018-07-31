@@ -30,6 +30,8 @@
 </script>
 ```
 
+## API
+
 > `text`必须为Array
 >
 > `addTime`和`deleteTime`需要为Nummber
