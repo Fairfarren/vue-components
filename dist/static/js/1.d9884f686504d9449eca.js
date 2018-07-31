@@ -1,2 +1,0 @@
-webpackJsonp([1],{A1tS:function(t,e,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var l={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",[e("fairfarrenTree",{attrs:{list:this.list}})],1)},staticRenderFns:[]},n=r("VU/8")({data:function(){return{list:[{text:"box1",childrens:[{text:"small1"},{text:"small2"}]},{text:"box2"}]}}},l,!1,null,null,null);e.default=n.exports}});
-//# sourceMappingURL=1.d9884f686504d9449eca.js.map

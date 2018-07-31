@@ -33,6 +33,9 @@ export default {
       }, {
         text: 'multipleSelect',
         path: '/multipleSelect'
+      }, {
+        text: 'animatedText',
+        path: '/animatedText'
       }],
       flag: false,
       ulShow: false
