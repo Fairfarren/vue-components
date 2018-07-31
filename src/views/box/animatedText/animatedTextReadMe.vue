@@ -40,7 +40,6 @@
 <th align="center">类型</th>
 <th align="center">可选值</th>
 <th align="center">默认值</th>
-<th align="center"></th>
 </tr>
 </thead>
 <tbody>
@@ -50,7 +49,6 @@
 <td align="center">Array</td>
 <td align="center">-</td>
 <td align="center">-</td>
-<td align="center"></td>
 </tr>
 <tr>
 <td align="center">addTime</td>
@@ -58,7 +56,6 @@
 <td align="center">Number</td>
 <td align="center">-</td>
 <td align="center">100</td>
-<td align="center"></td>
 </tr>
 <tr>
 <td align="center">deleteTime</td>
@@ -66,7 +63,6 @@
 <td align="center">Number</td>
 <td align="center">-</td>
 <td align="center">50</td>
-<td align="center"></td>
 </tr>
 <tr>
 <td align="center">again</td>
@@ -74,7 +70,6 @@
 <td align="center">Boolean</td>
 <td align="center">-</td>
 <td align="center">false</td>
-<td align="center"></td>
 </tr>
 <tr>
 <td align="center">textClass</td>
@@ -82,7 +77,6 @@
 <td align="center">String</td>
 <td align="center">-</td>
 <td align="center">-</td>
-<td align="center"></td>
 </tr></tbody></table>
 </div>
 </template>
