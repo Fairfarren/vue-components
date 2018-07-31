@@ -53,6 +53,7 @@ html {
 .box {
   // flex: 1 1 100%;
   flex-shrink: 1;
+  max-width: calc(100vw - 300px);
   // grid-column: 2 / auto;
   padding: 20px;
   box-sizing: border-box;
