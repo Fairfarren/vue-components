@@ -28,9 +28,6 @@ export default {
         text: 'banner',
         path: '/banner'
       }, {
-        text: 'card',
-        path: '/card'
-      }, {
         text: 'multipleSelect',
         path: '/multipleSelect'
       }, {
