@@ -4,19 +4,24 @@ async function addView (path) {
   const text =
 `<template>
   <div>
-    ${path}
+    <fairfarren${path.charAt(0).toUpperCase()}${path.slice(1)} />
+    <br />
+    <${path}Readme />
   </div>
 </template>
 
 <script>
 export default {
-
+  components: {
+    ${path}Readme: () => import('@/views/box/${path}/${path}ReadMe.vue')
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 
-</style>`
+</style>
+`
   if (!fs.existsSync(`./src/views/box/${path}`)) {
     await fs.mkdirSync(`./src/views/box/${path}`)
   }
