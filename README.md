@@ -18,6 +18,8 @@
 
 > $ yarn run page
 
+**记得去`./src/views/catalog.vue`下添加左边的导航**
+
 ### 实时把`README.md`文件转成vue文件
 
 > $ yarn run watchReadme
