@@ -1,6 +1,6 @@
 <template>
   <div>
-    <fairfarrenAnimatedText :text="text" :addTime="100" :deleteTime="50" :again="true" textClass="animatedStyle" :wait="2000"/>
+    <fairfarrenAnimatedText :text="text" :addTime="100" :deleteTime="50" :again="true" textClass="animatedStyle" :wait="2000" :FSize="30"/>
     <br />
     <animatedTextReadMe />
   </div>

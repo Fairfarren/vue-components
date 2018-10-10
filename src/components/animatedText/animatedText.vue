@@ -1,16 +1,46 @@
 <template>
-  <div>
-    <span class="animatedText" :class="textClass">
-      <b style="opacity: 0;">1</b>
+  <div class="animatedTextBox">
+    <span class="animatedText" :class="textClass" :style="{fontSize: FSize + 'px', inlineHeight: 1.5 * FSize + 'px', minHeight: 1.5 * FSize + 'px', height: height || ''}">
+      <!-- <b style="opacity: 0;">1</b> -->
       {{value}}
-      <i />
     </span>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['text', 'addTime', 'deleteTime', 'again', 'textClass', 'wait'],
+  props: {
+    // 'text', 'addTime', 'deleteTime', 'again', 'textClass', 'wait', 'height',
+    text: {
+      type: Array
+    },
+    addTime: {
+      type: Number,
+      default: 100
+    },
+    deleteTime: {
+      type: Number,
+      default: 50
+    },
+    textClass: {
+      type: String
+    },
+    wait: {
+      type: Number,
+      default: 1000
+    },
+    again: {
+      type: Boolean,
+      default: false
+    },
+    FSize: {
+      type: Number,
+      default: 16
+    },
+    height: {
+      type: Number
+    }
+  },
   data () {
     return {
       value: ' ',
@@ -22,17 +52,15 @@ export default {
       await this.deleteText()
       await this.addText()
       await this.waitTime()
-      if (this.num < this.text.length) {
-        this.getValue()
-      } else if (this.again) {
-        this.num = 0
+      this.num = (this.num >= this.text.length && this.again) ? 0 : this.num
+      if (this.num < this.text.length || this.again) {
         this.getValue()
       }
     },
     // 删除字节
     deleteText () {
       return new Promise((resolve) => {
-        let timer = setInterval(() => {
+        const timer = setInterval(() => {
           let length = this.value.length - 1
           if (length <= 0) {
             clearInterval(timer)
@@ -41,7 +69,7 @@ export default {
           } else {
             this.value = this.value.slice(0, length - 1)
           }
-        }, this.deleteTime || 50)
+        }, this.deleteTime)
       })
     },
     // 添加字节
@@ -50,7 +78,7 @@ export default {
         let arr = this.text[this.num].split('')
         let length = arr.length
         let arrIndex = 0
-        let timer = setInterval(() => {
+        const timer = setInterval(() => {
           this.value += arr[arrIndex]
           arrIndex += 1
           if (arrIndex === length) {
@@ -58,12 +86,12 @@ export default {
             this.num += 1
             resolve()
           }
-        }, this.addTime || 100)
+        }, this.addTime)
       })
     },
     waitTime () {
       return new Promise((resolve) => {
-        setTimeout(resolve, this.wait || 1000)
+        setTimeout(resolve, this.wait)
       })
     }
   },
@@ -74,23 +102,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.animatedTextBox {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
 .animatedText {
-  display: inline-block;
+  display: block;
+  float: left;
   position: relative;
   padding: {
     right: 5px;
   }
-  i {
-    position: absolute;
-    display: inline-block;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 2px;
+  &::after {
+    content: '|';
     animation: opacity 0.8s infinite;
-    background: {
-      color: #333;
-    }
+    color: #333;
   }
 }
 @keyframes opacity {

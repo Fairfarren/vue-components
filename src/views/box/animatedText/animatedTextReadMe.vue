@@ -11,7 +11,7 @@
 </ol>
 <h2>示例</h2>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">template</span>&gt;
-  &lt;<span class="pl-ent"><span class="pl-ii">fairfarrenAnimatedText</span></span> <span class="pl-e">:text</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">:addTime</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span> <span class="pl-e">:deleteTime</span>=<span class="pl-s"><span class="pl-pds">"</span>50<span class="pl-pds">"</span></span> <span class="pl-e">:again</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">textClass</span>=<span class="pl-s"><span class="pl-pds">"</span>animatedStyle<span class="pl-pds">"</span></span> <span class="pl-e">:wait</span>=<span class="pl-s"><span class="pl-pds">"</span>2000<span class="pl-pds">"</span></span>/&gt;
+  &lt;<span class="pl-ent">fairfarrenAnimatedText</span> <span class="pl-e">:text</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">:addTime</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span> <span class="pl-e">:deleteTime</span>=<span class="pl-s"><span class="pl-pds">"</span>50<span class="pl-pds">"</span></span> <span class="pl-e">:again</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">textClass</span>=<span class="pl-s"><span class="pl-pds">"</span>animatedStyle<span class="pl-pds">"</span></span> <span class="pl-e">:wait</span>=<span class="pl-s"><span class="pl-pds">"</span>2000<span class="pl-pds">"</span></span> <span class="pl-e">:FSize</span>=<span class="pl-s"><span class="pl-pds">"</span>30<span class="pl-pds">"</span></span>/&gt;
 &lt;/<span class="pl-ent">template</span>&gt;
 
 &lt;<span class="pl-ent">script</span>&gt;<span class="pl-s1"></span>
@@ -27,12 +27,14 @@
 <span class="pl-s1">    }</span>
 <span class="pl-s1">  }</span>
 <span class="pl-s1">}</span>
-<span class="pl-s1"></span><span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;</pre></div>
+<span class="pl-s1"></span>&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
 <h2>API</h2>
 <blockquote>
 <p><code>text</code>必须为Array</p>
 <p><code>addTime</code>和<code>deleteTime</code>需要为Nummber</p>
-<p><code>textClass</code>可以给字体添加class类名。<strong>注意：</strong><code>&lt;style&gt;</code>标签内的<code>scoped</code>属性。</p>
+<p><code>textClass</code>可以给字体添加class类名。<strong>注意：</strong><code>&lt;style&gt;</code>标签内的<code>scoped</code>属性</p>
+<p><code>FSize</code>。最为了让删掉所有字符的时候，保留一个占位的元素，用了一个透明的标签。但是这就导致了开头没有对齐。所以选择了定义<code>FSize</code>，最小高度为1.5倍</p>
+<p><code>height</code>，如果出现有换行的情况，从一排变成两排的时候，会出现下方元素被往下挤的情况。为了不出现这种抖动，可以根据实际情况来定义一下高度。但这并不是必须的。<del>最先设计这个组件的时候，并没有考虑到有多行的情况，初衷是只有一行的展示</del></p>
 </blockquote>
 <table>
 <thead>
@@ -86,6 +88,20 @@
 <td align="center">Number</td>
 <td align="center">-</td>
 <td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">FSize</td>
+<td align="center">字体大小，1.5倍的行高</td>
+<td align="center">Number</td>
+<td align="center">-</td>
+<td align="center">16</td>
+</tr>
+<tr>
+<td align="center">height</td>
+<td align="center">组件的高度，必须大于1.5倍的<code>FSize</code></td>
+<td align="center">Number</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr></tbody></table>
 </div>
 </template>

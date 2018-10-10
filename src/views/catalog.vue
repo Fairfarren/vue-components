@@ -2,7 +2,7 @@
   <div id="catalog">
     <div class="text-center">
       <h3>
-        <a href="https://fairfarren.github.io" target="_blank">曼妥思的组件</a>
+        <a href="https://github.com/Fairfarren/vue-components" target="_blank">曼妥思的组件</a>
       </h3>
       <div @click="changeFlag">
         <span></span>
