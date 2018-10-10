@@ -164,9 +164,9 @@ export default {
   mounted () {
     this.getImgHeight()
     this.theTimeOut()
-    window.onresize = () => {
+    window.addEventListener('resize', () => {
       this.getImgHeight()
-    }
+    })
   },
   watch: {
     'nowIndex' () {

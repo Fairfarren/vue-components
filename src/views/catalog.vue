@@ -44,7 +44,8 @@ export default {
       this.ulShow = !this.ulShow
     },
     windowWidth () {
-      if (window.innerWidth < 768) {
+      const width = document.getElementById('app').clientWidth
+      if (width <= 768) {
         this.flag = true
         this.ulShow = false
       } else {
@@ -135,7 +136,7 @@ export default {
   }
   .fade-enter {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(20%);
     transition: all 0.5s;
   }
   .fade-leave {
@@ -143,7 +144,7 @@ export default {
   }
   .fade-leave-active {
     transition: all 0.5s;
-    transform: translateY(-100%);
+    transform: translateY(-30%);
     opacity: 0;
   }
   @media screen and (max-width: 768px) {

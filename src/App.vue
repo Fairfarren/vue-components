@@ -29,9 +29,9 @@ export default {
   },
   mounted () {
     this.getWidth()
-    window.onresize = () => {
+    window.addEventListener('resize', () => {
       this.getWidth()
-    }
+    })
   }
 }
 </script>
