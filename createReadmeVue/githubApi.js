@@ -9,7 +9,7 @@ function githubApi (path) {
         text: data.toString(),
         mode: 'gfm'
       }).then(async (res) => {
-        console.log(res.data)
+        // console.log(res.data)
         resolve(res.data)
       }).catch(err => {
         console.log(err)

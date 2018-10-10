@@ -56,7 +56,7 @@ export default {
 </script>
 `, (err) => {
           if (err) console.log(err)
-          console.log('打包成功')
+          console.log('打包成功', new Date())
         })
     })
   }
