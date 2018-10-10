@@ -1,7 +1,6 @@
-
 <template>
-    <div class='markdown-body entry-content'>
-        <h1>multipleSelect</h1>
+<div class='markdown-body entry-content'>
+  <h1>multipleSelect</h1>
 <h2>目前有的功能</h2>
 <ol>
 <li>框中输入的文字</li>
@@ -13,7 +12,7 @@
 <h2>示例</h2>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">template</span>&gt;
   &lt;<span class="pl-ent">div</span>&gt;
-    &lt;<span class="pl-ent">fairfarrenMultipleSelect</span> <span class="pl-e">theKey</span>=<span class="pl-s"><span class="pl-pds">"</span>input01<span class="pl-pds">"</span></span> :<span class="pl-e">reg</span>=<span class="pl-s"><span class="pl-pds">"</span>mail<span class="pl-pds">"</span></span> <span class="pl-e">boxWidth</span>=<span class="pl-s"><span class="pl-pds">"</span>300px<span class="pl-pds">"</span></span>/&gt;
+    &lt;<span class="pl-ent">fairfarrenMultipleSelect</span> <span class="pl-e">theKey</span>=<span class="pl-s"><span class="pl-pds">"</span>input01<span class="pl-pds">"</span></span> <span class="pl-e">:reg</span>=<span class="pl-s"><span class="pl-pds">"</span>mail<span class="pl-pds">"</span></span> <span class="pl-e">boxWidth</span>=<span class="pl-s"><span class="pl-pds">"</span>300px<span class="pl-pds">"</span></span>/&gt;
   &lt;/<span class="pl-ent">div</span>&gt;
 &lt;/<span class="pl-ent">template</span>&gt;
 
@@ -33,9 +32,10 @@
 <span class="pl-s1">    }</span>
 <span class="pl-s1">  }</span>
 <span class="pl-s1">}</span>
-<span class="pl-s1"></span><span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;</pre></div>
+<span class="pl-s1"></span>&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
 <blockquote>
-<p>必须添加<code>theKey</code>字段，因为会去操作dom标签，让它去获取焦点</p>
+<p>必须添加<code>theKey</code>字段，因为会去操作dom标签，让它去获取焦点，可以是任意值</p>
+<p>为什么要添加<code>theKey</code>字段？因为考虑到，如果一个页面里面有两个这样的组件的情况</p>
 <p><code>reg</code>就是正则验证和错误提示，可以不写。如果不写，则没有验证</p>
 </blockquote>
 <h2>接下来准备做的内容</h2>
@@ -83,11 +83,10 @@
 <td align="center">-</td>
 <td align="center">-</td>
 </tr></tbody></table>
-    </div>
+</div>
 </template>
 
 <script>
 export default {
-
 }
 </script>

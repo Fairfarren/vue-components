@@ -56,23 +56,22 @@ export default {
       }, 100)
     },
     inputBlue () {
-      if (this.text.trim() && this.addFlg) {
-        this.list.push(this.text)
-        this.text = ''
-      }
-      this.inputShow = false
-    },
-    enterKeyUp () {
-      new Promise((resolve) => {
-        this.inputBlue()
+      return new Promise(resolve => {
+        if (this.text.trim() && this.addFlg) {
+          this.list.push(this.text)
+          this.text = ''
+        }
+        this.inputShow = false
         resolve()
-      }).then(() => {
-        this.chioseInput()
       })
+    },
+    async enterKeyUp () {
+      await this.inputBlue()
+      this.chioseInput()
     }
   },
   mounted () {
-    this.addFlg = !this.reg && true
+    this.addFlg = !this.reg
   },
   watch: {
     'text' (value) {
