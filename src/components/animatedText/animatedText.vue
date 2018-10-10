@@ -10,7 +10,6 @@
 <script>
 export default {
   props: {
-    // 'text', 'addTime', 'deleteTime', 'again', 'textClass', 'wait', 'height',
     text: {
       type: Array
     },
