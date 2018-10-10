@@ -3,7 +3,7 @@
     <div class="left">
       <catalog />
     </div>
-    <div class="box">
+    <div class="box" :style="{maxWidth: width > 768 ? width - 300 + 'px' : '100%'}">
       <transition name="fade" mode="out-in">
         <router-view />
       </transition>
@@ -14,8 +14,24 @@
 <script>
 export default {
   name: 'App',
+  data () {
+    return {
+      width: ''
+    }
+  },
   components: {
     catalog: () => import('@/views/catalog.vue')
+  },
+  methods: {
+    getWidth () {
+      this.width = document.getElementById('app').clientWidth
+    }
+  },
+  mounted () {
+    this.getWidth()
+    window.onresize = () => {
+      this.getWidth()
+    }
   }
 }
 </script>
@@ -35,6 +51,7 @@ html {
 }
 #app {
   width: 100%;
+  max-width: 100vw;
   display: flex;
 }
 .left {
@@ -52,8 +69,9 @@ html {
 }
 .box {
   // flex: 1 1 100%;
+  flex: 1;
   flex-shrink: 1;
-  max-width: calc(100vw - 300px);
+  // max-width: calc(100vw - 300px);
   // grid-column: 2 / auto;
   padding: 20px;
   box-sizing: border-box;
@@ -77,7 +95,7 @@ html {
   transform: translateX(-100%);
   opacity: 0;
 }
-@media screen and (max-width: 823px) {
+@media screen and (max-width: 768px) {
   #app {
     display: block;
     position: relative;

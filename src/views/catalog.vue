@@ -44,7 +44,7 @@ export default {
       this.ulShow = !this.ulShow
     },
     windowWidth () {
-      if (window.innerWidth < 823) {
+      if (window.innerWidth < 768) {
         this.flag = true
         this.ulShow = false
       } else {
@@ -146,7 +146,7 @@ export default {
     transform: translateY(-100%);
     opacity: 0;
   }
-  @media screen and (max-width: 823px) {
+  @media screen and (max-width: 768px) {
     #catalog {
       position: relative;
       >.text-center {
